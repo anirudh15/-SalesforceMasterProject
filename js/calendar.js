@@ -1,5 +1,6 @@
 window.onload = function () {
     checkSessionValidity();
+    getContactCampaign();
 }
 
 function checkSessionValidity() {
@@ -66,7 +67,7 @@ let userEmail = getCookie("Id");
   });
 
 campaignIdListResponse = await campaignIdList.json();
-for (let i = 0; i < volunteerStatsResponse["totalSize"]; i++) {
+for (let i = 0; i < campaignIdListResponse["totalSize"]; i++) {
     vArray.push([campaignIdListResponse["records"]["name"]["campaignId"]]);
 
 }
@@ -81,8 +82,8 @@ let campaignNameList = await fetch("https://eilireland.my.salesforce.com/service
 });
 
 campaignNameListResponse = await campaignNameList.json();
-for (let i = 0; i < volunteerStatsResponse["totalSize"]; i++) {
-  vArray.push([campaignListResponse["records"]["name"]["Id"]]);
+for (let i = 0; i < campaignNameListResponse["totalSize"]; i++) {
+  vArray2.push([campaignListResponse["records"]["name"]["StartDate"]]);
 
 }
 
