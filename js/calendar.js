@@ -53,6 +53,7 @@ async function getToken() {
 async function getContactCampaign(){
 
 let vArray = [];
+let vArray2 = [];
 let userEmail = getCookie("Id");
 
   let campaignIdList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+name,campaignId+from+CampaignMember+where+email="+userEmail, {
