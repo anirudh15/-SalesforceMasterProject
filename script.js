@@ -87,7 +87,7 @@ $(document).ready(function() {
   }
 return vArray2;
 }
-});
+
 		$('#calendar').fullCalendar(
       {
 
@@ -168,3 +168,4 @@ return vArray2;
 
 
     } );
+    });
