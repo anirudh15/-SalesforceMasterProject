@@ -87,7 +87,7 @@ $(document).ready(function() {
   }
 return vArray2;
 }
-});
+
 $('#calendar').fullCalendar(
       {
         let getToday = getCurrentDate();
@@ -161,3 +161,4 @@ $('#calendar').fullCalendar(
             ]
       }
     );
+});
