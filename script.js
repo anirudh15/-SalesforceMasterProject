@@ -88,7 +88,7 @@ $(document).ready(function() {
 return vArray2;
 }
 
-		$('#calendar').fullCalendar(
+	$('#calendar').fullCalendar(
       {
 
       let getToday = getCurrentDate();
