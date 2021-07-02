@@ -78,17 +78,15 @@ return vArray2;
 }
 
 let demo = [
-  for (var i = 0; i < vArray2.length; i++) {
-    for (var j = 1; j < vArray2[i].length; i++) {
+
 
       {
         id: "xvblk",
-        date: vArray2[][j],
-        content: vArray2[i][],
+        date: "2020/07/02",
+        content: "ghghgh",
         source: "http://salesforce.com" },
 
-  }
-}
+
 ];
 
 
