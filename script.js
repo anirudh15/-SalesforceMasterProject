@@ -84,7 +84,7 @@ let demo = [
         id: "xvblk",
         date: "2020/07/02",
         content: "ghghgh",
-        source: "http://salesforce.com" },
+        source: "http://salesforce.com" }
 
 
 ];
