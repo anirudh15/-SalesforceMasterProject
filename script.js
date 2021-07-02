@@ -1,121 +1,102 @@
 // demo data for events
 let demo = [
-{
-id: "cbnbc",
-date: "2021/04/15",
-content: "Optimize Components",
-source: "http://example.com" },
 
 {
-id: "adfae4",
-date: "2021/04/2",
-content: "Yo have a new session",
-source: "http://example.com" },
+  for (var i = 0; i < vArray2.length; i++) {
+    let campDate = newArray[i][1];
+    var dd = String(campDate.getDate()).padStart(2, '0');
+    var mm = String(campDate.getMonth() + 1).padStart(2, '0');
+    var yyyy = campDate.getFullYear();
+    campDate = yyyy + '/' + mm + '/' + dd;
+    {
+id: i,
+date: campDate,
+content: vArray2[i][0],
+source: "salesforce.com"
+}
+demo.join(",");
 
-{
-id: "sdgsdfg",
-date: "2021/04/23",
-content: "Upload new assets",
-source: "http://google.com" },
-
-{
-id: "xdffgb",
-date: "2021/03/10",
-content: "Yo have a new session",
-source: "http://example.com" },
-
-{
-id: "asdf3a",
-date: "2021/04/2",
-content: "Yo have a new session",
-source: "http://example.com" },
-
-{
-id: "cbnbcr",
-date: "2021/04/4",
-content: "Optimize Components",
-source: "http://example.com" },
-
-{
-id: "adfae34",
-date: "2021/04/5",
-content: "Yo have a new session",
-source: "http://example.com" },
-
-{
-id: "sdgsd3fg",
-date: "2021/04/6",
-content: "Upload new assets",
-source: "http://google.com" },
-
-{
-id: "xdff4gb",
-date: "2021/03/9",
-content: "Yo have a new session",
-source: "http://example.com" },
-
-
-{
-id: "ghjku",
-date: "2021/05/23",
-content: "Yo have a new session",
-source: "http://example.com" },
-
-{
-id: "vnmj",
-date: "2021/05/15",
-content: "Optimize Components",
-source: "http://example.com" },
-
-{
-id: "sfgr",
-date: "2021/06/2",
-content: "Yo have a new session",
-source: "http://example.com" },
-
-{
-id: "sdgsdfg",
-date: "2021/03/23",
-content: "Upload new assets",
-source: "http://google.com" },
-
-{
-id: "gjgjj",
-date: "2021/02/10",
-content: "Yo have a new session",
-source: "http://example.com" },
-
-{
-id: "xvblk",
-date: "2021/06/2",
-content: "Yo have a new session",
-source: "http://example.com" },
-
-{
-id: "zcxv5",
-date: "2021/05/4",
-content: "Optimize Components",
-source: "http://example.com" },
-
-{
-id: "xvbm5",
-date: "2021/03/5",
-content: "Yo have a new session",
-source: "http://example.com" },
-
-{
-id: "sdgsd34fg",
-date: "2021/07/6",
-content: "Upload new assets",
-source: "http://google.com" },
-
-{
-id: "ader",
-date: "2021/08/9",
-content: "Yo have a new session",
-source: "http://example.com" }
+}
+}
 
 ];
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function getCurrentDate() {
+    let currentDate = new Date();
+    var dd = String(currentDate.getDate()).padStart(2, '0');
+    var mm = String(currentDate.getMonth() + 1).padStart(2, '0');
+    var yyyy = currentDate.getFullYear();
+    currentDate = yyyy + '-' + mm + '-' + dd;
+    return currentDate;
+}
+
+async function getToken() {
+    let response = await fetch("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9fTLmJ60pJ5LcM88X.T4cnlgFI6sTtiU0_tQwwMuyjIocVl289zYxysWrm45Y9JSHF0f55z.1SJoYFpkQ&client_secret=E2D30FFD226F098FDC26D1A0FA58581717B97678E30559C77F55C092B7899361&username=project2@eilireland.org&password=Secureit123AYfrE3tYJC7OVZtTEg0hgDkI", {
+        method: "POST",
+        mode: 'cors',
+        headers: {
+            "Content-type": "application/json;charset=UTF-8",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
+        },
+    });
+
+    let data = await response.json();
+    return await data["access_token"];
+}
+async function getContactCampaign(){
+
+  let vArray = [];
+  let vArray2 = [];
+  let userEmail = getCookie("Id");
+
+    let campaignIdList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+name,campaignId+from+CampaignMember+where+email="+userEmail, {
+      method: "GET",
+      mode: 'cors',
+      headers: {
+          "Content-type": "application/json;charset=UTF-8",
+          "Authorization": "Bearer " + await getToken()
+      }
+    });
+
+  campaignIdListResponse = await campaignIdList.json();
+  for (let i = 0; i < campaignIdListResponse["totalSize"]; i++) {
+      vArray.push([campaignIdListResponse["records"]["name"]["campaignId"]]);
+
+  }
+
+  let campaignNameList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+name,StartDate+from+campaign+where+id+in+("+vArray+")", {
+    method: "GET",
+    mode: 'cors',
+    headers: {
+        "Content-type": "application/json;charset=UTF-8",
+        "Authorization": "Bearer " + await getToken()
+    }
+  });
+
+  campaignNameListResponse = await campaignNameList.json();
+  for (let i = 0; i < campaignNameListResponse["totalSize"]; i++) {
+    vArray2.push([campaignListResponse["name"]["StartDate"]]);
+
+  }
+return vArray2;
+}
 
 
 
@@ -160,8 +141,8 @@ headerLeft = createElement("div", calendarHeader, { className: "left" }),
 headerCenter = createElement("div", calendarHeader, { className: "center" }),
 headerRight = createElement("div", calendarHeader, { className: "right" }),
 // inside left column
-buttonPrev = createElement("button", headerLeft, { textContent: "Anterior" }),
-buttonNext = createElement("button", headerLeft, { textContent: "Siguiente" }),
+buttonPrev = createElement("button", headerLeft, { textContent: "back" }),
+buttonNext = createElement("button", headerLeft, { textContent: "forward" }),
 centerTitle = createElement("h1", headerCenter, {
   textContent: months[currentMonth] + " " + currentYear }),
 
