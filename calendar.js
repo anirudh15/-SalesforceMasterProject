@@ -66,11 +66,11 @@ function getCookie(cname) {
 
     campaignIdListResponse = await campaignIdList.json();
 console.log(campaignIdListResponse);
-campaignIDArray = [];
+campaignIDArray = "";
     //console.log(JSON.stringify(campaignIdListResponse));
 
      for (let i = 0; i <campaignIdListResponse["totalSize"]; i++) {
-       campaignIDArray.push(campaignIdListResponse["records"][i]["CampaignId"]);
+       campaignIDArray += "'" + campaignIdListResponse["records"][i]["CampaignId"] "',";
      }
       console.log(campaignIDArray);
     // for (let i = 0; i < campaignIdListResponse["totalSize"]; i++) {
@@ -79,7 +79,7 @@ campaignIDArray = [];
     // }
     // console.log((vArray));
 
-    let campaignNameList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+name,StartDate+from+campaign+where+id+in+'"+campaignIDArray+"'", {
+    let campaignNameList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+name,StartDate+from+campaign+where+id+in+('"+campaignIDArray+"'", {
       method: "GET",
       mode: 'cors',
       headers: {
