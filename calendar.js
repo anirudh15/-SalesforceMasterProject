@@ -66,12 +66,13 @@ function getCookie(cname) {
 
     campaignIdListResponse = await campaignIdList.json();
 console.log(campaignIdListResponse);
+campaignIDArray = [];
     //console.log(JSON.stringify(campaignIdListResponse));
-     console.log(Object.entries(campaignIdListResponse));
-     for (let i = 0; i <campaignIdListResponse["totalSize"]; i++) {
-         vArray.push([campaignIdListResponse["records"][i]["name"],campaignIdListResponse["records"][i]["campaignId"] ]);
-     }
 
+     for (let i = 0; i <campaignIdListResponse["totalSize"]; i++) {
+       campaignIDArray.push(campaignIdListResponse["records"][i]["CampaignId"]);
+     }
+      console.log(campaignIDArray);
     // for (let i = 0; i < campaignIdListResponse["totalSize"]; i++) {
     //     vArray.push([campaignIdListResponse["records"]["name"]["campaignId"]]);
     //
@@ -88,12 +89,10 @@ console.log(campaignIdListResponse);
     });
 
     campaignNameListResponse = await campaignNameList.json();
-    //console.log(JSON.stringify(campaignListResponse));
-    console.log(campaignNameListResponse);
 
     for (let i = 0; i < campaignNameListResponse["totalSize"]; i++) {
-       //const campaigns = campaignNameListResponse
       vArray2.push([campaignNameListResponse["name"]["StartDate"]]);
+
 
       // let demosArray = []
       // campaigns.forEach((campaign) => {
