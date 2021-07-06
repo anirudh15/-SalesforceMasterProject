@@ -69,7 +69,7 @@ function getCookie(cname) {
     //console.log(JSON.stringify(campaignIdListResponse));
      console.log(campaignIdListResponse);
      for (let i = 0; i <campaignIdListResponse["totalSize"]; i++) {
-         vArray.push([campaignIdListResponse["records"][i]["name"],campaignIdListResponse ["records"][i]["campaignId"], ]);
+         vArray.push([campaignIdListResponse[i]["name"],campaignIdListResponse[i]["campaignId"], ]);
      }
 
     // for (let i = 0; i < campaignIdListResponse["totalSize"]; i++) {
