@@ -69,7 +69,7 @@ console.log(campaignIdListResponse);
 campaignIDArray = "";
 
      for (let i = 0; i <campaignIdListResponse["totalSize"]; i++) {
-       campaignIDArray += "'" + campaignIdListResponse["records"][i]["CampaignId"] "',";
+       campaignIDArray = campaignIDArray + "'" + campaignIdListResponse["records"][i]["CampaignId"] + "',";
      }
       console.log(campaignIDArray);
     // for (let i = 0; i < campaignIdListResponse["totalSize"]; i++) {
