@@ -47,8 +47,6 @@ window.onload = function () {
       });
 
       let data = await response.json();
-      //transform data into array of demo like objects
-
       return await data["access_token"];
   }
   async function getContactCampaign(){
