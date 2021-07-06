@@ -1,10 +1,4 @@
-// for (var i = 0; i < vArray2.length; i++) {
-//   let campDate = newArray[i][1];
-//   var dd = String(campDate.getDate()).padStart(2, '0');
-//   var mm = String(campDate.getMonth() + 1).padStart(2, '0');
-//   var yyyy = campDate.getFullYear();
-//   campDate = yyyy + '/' + mm + '/' + dd;
-// }
+
 window.onload = function () {
     console.log(getContactCampaign());
 
@@ -109,6 +103,24 @@ campaignIDArray = "";
         // demosArray.push(eventObject);
       }
 console.log(campaignNameArray);
+let demo = [];
+for(let i = 0;i<campaignNameArray.length;i++) {
+  let campDate = campaignNameArray[i][1];
+  var dd = String(campDate.getDate()).padStart(2, '0');
+  var mm = String(campDate.getMonth() + 1).padStart(2, '0');
+  var yyyy = campDate.getFullYear();
+  campDate = yyyy + '/' + mm + '/' + dd;
+
+demo.id = i;
+demo.content = campaignNameArray["name"];
+demo.date = campDate;
+demo.source= "www.salesforce.com";
+
+}
+console.log(demo);
+initCalender(demo);
+}
+
       // initCalender(demosArray);
 //loader-offset//
 //load-data-in-demo
