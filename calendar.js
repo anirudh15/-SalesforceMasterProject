@@ -9,21 +9,21 @@ window.onload = function () {
     console.log(getContactCampaign());
 
 }
- function getCookie(cname) {
-      var name = cname + "=";
-      var decodedCookie = decodeURIComponent(document.cookie);
-      var ca = decodedCookie.split(';');
-      for (var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0) == ' ') {
-              c = c.substring(1);
-          }
-          if (c.indexOf(name) == 0) {
-              return c.substring(name.length, c.length);
-          }
-      }
-      return "";
-  }
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
   function getCurrentDate() {
       let currentDate = new Date();
@@ -55,7 +55,7 @@ window.onload = function () {
     let vArray2 = [];
     let userEmail = getCookie("Id");
 
-      let campaignIdList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+name,campaignId+from+CampaignMember+where+email="+userEmail, {
+      let campaignIdList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+contact.name,campaignId+from+CampaignMember+where+contact.email="+userEmail, {
         method: "GET",
         mode: 'cors',
         headers: {
