@@ -79,7 +79,7 @@ campaignIDArray = [];
     // }
     // console.log((vArray));
 
-    let campaignNameList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+name,StartDate+from+campaign+where+id+in+'"+campaignIDArray+"'", {
+    let campaignNameList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+name,StartDate+from+campaign+where+id+in+('"+campaignIDArray+"')", {
       method: "GET",
       mode: 'cors',
       headers: {
