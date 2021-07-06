@@ -65,13 +65,17 @@ function getCookie(cname) {
       });
 
     campaignIdListResponse = await campaignIdList.json();
+
     //console.log(JSON.stringify(campaignIdListResponse));
      console.log(campaignIdListResponse);
+     for (let i = 0; i <campaignIdListResponse["totalSize"]; i++) {
+         vArray.push([campaignIdListResponse["records"][i]["name"], volunteerStatsResponse["records"][i]["campaignId"], ]);
+     }
 
-    for (let i = 0; i < campaignIdListResponse["totalSize"]; i++) {
-        vArray.push([campaignIdListResponse["records"]["name"]["campaignId"]]);
-
-    }
+    // for (let i = 0; i < campaignIdListResponse["totalSize"]; i++) {
+    //     vArray.push([campaignIdListResponse["records"]["name"]["campaignId"]]);
+    //
+    // }
     console.log((vArray));
 
     let campaignNameList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+name,StartDate+from+campaign+where+id+in+("+vArray+")", {
