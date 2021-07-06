@@ -77,9 +77,9 @@ campaignIDArray = [];
     //     vArray.push([campaignIdListResponse["records"]["name"]["campaignId"]]);
     //
     // }
-    console.log((vArray));
+    // console.log((vArray));
 
-    let campaignNameList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+name,StartDate+from+campaign+where+id+in+("+vArray+")", {
+    let campaignNameList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+name,StartDate+from+campaign+where+id+in+('"+campaignIDArray+"')", {
       method: "GET",
       mode: 'cors',
       headers: {
@@ -89,9 +89,12 @@ campaignIDArray = [];
     });
 
     campaignNameListResponse = await campaignNameList.json();
+    console.log(campaignNameListResponse);
 
-    for (let i = 0; i < campaignNameListResponse["totalSize"]; i++) {
-      vArray2.push([campaignNameListResponse["name"]["StartDate"]]);
+    campaignNameArray = [];
+
+    for (let j = 0; j < campaignNameListResponse["totalSize"]; j++) {
+      campaignNameArray.push([campaignNameListResponse["records"][j]["name"],campaignNameListResponse["records"][j]["StartDate"]]);
 
 
       // let demosArray = []
@@ -105,7 +108,7 @@ campaignIDArray = [];
 
         // demosArray.push(eventObject);
       }
-console.log(vArray2);
+console.log(campaignNameArray);
       // initCalender(demosArray);
 //loader-offset//
 //load-data-in-demo
