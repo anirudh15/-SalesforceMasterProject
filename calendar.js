@@ -71,6 +71,7 @@ campaignIDArray = "";
      for (let i = 0; i <campaignIdListResponse["totalSize"]; i++) {
        campaignIDArray = campaignIDArray + "'" + campaignIdListResponse["records"][i]["CampaignId"] + "',";
      }
+     campaignIDArray = campaignIDArray.substring(-1, campaignIDArray.length);
       console.log(campaignIDArray);
     // for (let i = 0; i < campaignIdListResponse["totalSize"]; i++) {
     //     vArray.push([campaignIdListResponse["records"]["name"]["campaignId"]]);
