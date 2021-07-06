@@ -55,7 +55,7 @@ function getCookie(cname) {
     let vArray2 = [];
     let userEmail = getCookie("Id");
 
-      let campaignIdList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+contact.name,campaignId+from+CampaignMember+where+contact.email = : "userEmail,{
+      let campaignIdList = await fetch("https://eilireland.my.salesforce.com/services/data/v25.0/query?q=select+contact.name,campaignId+from+CampaignMember+where+contact.email = : "+userEmail,{
         method: "GET",
         mode: 'cors',
         headers: {
