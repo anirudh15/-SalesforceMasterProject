@@ -67,7 +67,6 @@ function getCookie(cname) {
     campaignIdListResponse = await campaignIdList.json();
 console.log(campaignIdListResponse);
 campaignIDArray = "";
-    //console.log(JSON.stringify(campaignIdListResponse));
 
      for (let i = 0; i <campaignIdListResponse["totalSize"]; i++) {
        campaignIDArray += "'" + campaignIdListResponse["records"][i]["CampaignId"] "',";
