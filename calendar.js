@@ -103,23 +103,32 @@ campaignIDArray = "";
         // demosArray.push(eventObject);
       }
 console.log(campaignNameArray);
-//const demo;
+var demo = [];
+var temp = {};
 for(let i = 0;i<campaignNameArray.length;i++) {
   console.log(campaignNameArray[i][1]);
   let campDate = campaignNameArray[i][1];
   var dd = String(campDate.substring(8,10));
+
   var mm = String(campDate.substring(5,7));
   var yyyy = campDate.substring(0,4);
   campDate = yyyy + '/' + mm + '/' + dd;
   console.log(campDate);
-let temp =
-{
-"id":i,
-"content":campaignNameArray[i]["name"],
-"date":campaignNameArray[i]["StartDate"],
-"source":"www.salesforce.com"
-}
 
+// temp["id"]=i,
+// temp["content"]=campaignNameArray[i]["name"],
+// temp["date"]=campaignNameArray[i]["StartDate"],
+// temp["source"]="www.salesforce.com"
+
+
+demo.push({
+
+    "id": i,
+    "date":campDate ,
+    content:campaignNameArray[0][i] ,
+    source: "http://salesforce.com"
+
+});
 
 // demo.id = i;
 // demo.content = campaignNameArray["name"];
@@ -127,8 +136,8 @@ let temp =
 // demo.source= "www.salesforce.com";
 
 }
-console.log(temp);
-initCalender(temp);
+console.log(demo);
+initCalender(demo);
 }
 
       // initCalender(demosArray);
