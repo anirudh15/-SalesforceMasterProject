@@ -108,7 +108,7 @@ for(let i = 0;i<campaignNameArray.length;i++) {
   console.log(campaignNameArray[i][1]);
   let campDate = campaignNameArray[i][1];
   var dd = String(campDate.substring(8,9));
-  var mm = String(campDate.substring(5,6);
+  var mm = String(campDate.substring(5,6));
   var yyyy = campDate.substring(0,3);
   campDate = yyyy + '/' + mm + '/' + dd;
 let temp =
