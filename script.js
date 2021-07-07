@@ -129,28 +129,28 @@ function initCalender(demo) {
 
   // array dias de la semana
   const weekdays = [
-  "Lunes",
-  "Martes",
-  "Miercoles",
-  "Jueves",
-  "Viernes",
-  "Sabado",
-  "Domingo"];
+  "monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday"];
 
   // array meses
   const months = [
-  "Enero",
-  "Febrero",
-  "Marzo",
-  "Abril",
-  "Mayo",
-  "Junio",
-  "Julio",
-  "Agosto",
-  "Septiembre",
-  "Octubre",
-  "Noviembre",
-  "Diciembre"];
+  "JANUARY",
+  "FEBRUARY",
+  "MARCH",
+  "APRIL",
+  "MAY",
+  "JUNE",
+  "July",
+  "AUGUST",
+  "SEPTEMBER",
+  "OCTOBER",
+  "NOVEMBER",
+  "DECEMBER"];
 
 
   // structure
@@ -164,8 +164,8 @@ function initCalender(demo) {
   headerCenter = createElement("div", calendarHeader, { className: "center" }),
   headerRight = createElement("div", calendarHeader, { className: "right" }),
   // inside left column
-  buttonPrev = createElement("button", headerLeft, { textContent: "Anterior" }),
-  buttonNext = createElement("button", headerLeft, { textContent: "Siguiente" }),
+  buttonPrev = createElement("button", headerLeft, { textContent: "Back" }),
+  buttonNext = createElement("button", headerLeft, { textContent: "Forward" }),
   centerTitle = createElement("h1", headerCenter, {
     textContent: months[currentMonth] + " " + currentYear }),
 
