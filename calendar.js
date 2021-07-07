@@ -111,6 +111,7 @@ for(let i = 0;i<campaignNameArray.length;i++) {
   var mm = String(campDate.substring(5,6));
   var yyyy = campDate.substring(0,3);
   campDate = yyyy + '/' + mm + '/' + dd;
+  console.log(campDate);
 let temp =
 {
 "id":i,
@@ -119,7 +120,7 @@ let temp =
 "source":"www.salesforce.com"
 }
 
-temp.push(temp);
+
 // demo.id = i;
 // demo.content = campaignNameArray["name"];
 // demo.date = campDate;
