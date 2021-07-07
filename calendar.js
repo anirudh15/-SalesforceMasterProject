@@ -88,7 +88,7 @@ campaignIDArray = "";
     campaignNameArray = [];
 
     for (let j = 0; j < campaignNameListResponse["totalSize"]; j++) {
-      campaignNameArray.push([campaignNameListResponse["records"][j]["name"],campaignNameListResponse["records"][j]["StartDate"]]);
+      campaignNameArray.push([campaignNameListResponse["records"][j]["Name"],campaignNameListResponse["records"][j]["StartDate"]]);
 
 
       // let demosArray = []
@@ -103,7 +103,7 @@ campaignIDArray = "";
         // demosArray.push(eventObject);
       }
 console.log(campaignNameArray);
-const demo;
+//const demo;
 for(let i = 0;i<campaignNameArray.length;i++) {
   console.log(campaignNameArray[i][1]);
   let campDate = campaignNameArray[i][1];
@@ -126,8 +126,8 @@ demo.push(temp);
 // demo.source= "www.salesforce.com";
 
 }
-console.log(demo);
-initCalender(demo);
+console.log(temp);
+initCalender(temp);
 }
 
       // initCalender(demosArray);
