@@ -119,7 +119,7 @@ let temp =
 "source":"www.salesforce.com"
 }
 
-demo.push(temp);
+temp.push(temp);
 // demo.id = i;
 // demo.content = campaignNameArray["name"];
 // demo.date = campDate;
