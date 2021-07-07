@@ -113,10 +113,10 @@ for(let i = 0;i<campaignNameArray.length;i++) {
   campDate = yyyy + '/' + mm + '/' + dd;
 let temp =
 {
-"id":i;
-"content":campaignNameArray[i]["name"];
-"date":campaignNameArray[i]["StartDate"];
-"source":"www.salesforce.com";
+"id":i,
+"content":campaignNameArray[i]["name"],
+"date":campaignNameArray[i]["StartDate"],
+"source":"www.salesforce.com"
 }
 
 demo.push(temp);
