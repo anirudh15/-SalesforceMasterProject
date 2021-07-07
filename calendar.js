@@ -103,18 +103,27 @@ campaignIDArray = "";
         // demosArray.push(eventObject);
       }
 console.log(campaignNameArray);
-let demo = [];
+const demo;
 for(let i = 0;i<campaignNameArray.length;i++) {
+  console.log(campaignNameArray[i][1]);
   let campDate = campaignNameArray[i][1];
   var dd = String(campDate.getDate()).padStart(2, '0');
   var mm = String(campDate.getMonth() + 1).padStart(2, '0');
   var yyyy = campDate.getFullYear();
   campDate = yyyy + '/' + mm + '/' + dd;
+let temp =
+{
+"id":i;
+"content":campaignNameArray[i]["name"];
+"date":campaignNameArray[i]["StartDate"];
+"source":"www.salesforce.com";
+}
 
-demo.id = i;
-demo.content = campaignNameArray["name"];
-demo.date = campDate;
-demo.source= "www.salesforce.com";
+demo.push(temp);
+// demo.id = i;
+// demo.content = campaignNameArray["name"];
+// demo.date = campDate;
+// demo.source= "www.salesforce.com";
 
 }
 console.log(demo);
@@ -126,4 +135,3 @@ initCalender(demo);
 //load-data-in-demo
   //   }
   // return vArray2;
-  
