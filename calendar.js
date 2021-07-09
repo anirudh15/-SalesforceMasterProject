@@ -125,7 +125,7 @@ demo.push({
 
     "id": i,
     "date":campDate ,
-    content:campaignNameArray[0][i] ,
+    content:campaignNameArray[i][0] ,
     source: "http://salesforce.com"
 
 });
